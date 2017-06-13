@@ -1,0 +1,547 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.4.1 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>依赖包配置 - ServiceComb</title>
+
+
+
+
+<meta name="description" content="如何利用JavaChassis迅速创建微服务.">
+
+
+
+
+<meta name="author" content="">
+
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="ServiceComb">
+<meta property="og:title" content="依赖包配置">
+
+
+  <link rel="canonical" href="http://localhost:4000/docs/dependency-config/">
+  <meta property="og:url" content="http://localhost:4000/docs/dependency-config/">
+
+
+
+  <meta property="og:description" content="如何利用JavaChassis迅速创建微服务.">
+
+
+
+  <meta name="twitter:site" content="@ServiceComb">
+  <meta name="twitter:title" content="依赖包配置">
+  <meta name="twitter:description" content="如何利用JavaChassis迅速创建微服务.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/dependency-config/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-06-13T10:12:16+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "ServiceComb",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="ServiceComb Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://localhost:4000/">ServiceComb</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/docs/quick-start-guide/">快速入门</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/docs/user-guide/">用户手册</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/docs/community">社区</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/docs/developers">开发</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/year-archive/">博文</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/about/">关于</a></li>
+          
+        </ul>
+        <button><div class="navicon"></div></button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">切换菜单</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="http://localhost:4000/docs/user-guide/"><span class="nav__sub-title">用户手册</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/quick-start-guide/" class="">快速入门</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/user-guide/" class="">ServiceComb是什么</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/start-sc/" class="">如何启动Service Center</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/jaxrs-sample/" class="">JAX RS例子</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/spring-mvc-sample/" class="">Spring MVC例子</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/pojo-sample/" class="">透明RPC例子</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/codefirst-sample/" class="">CodeFirst例子</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/faq/" class="">常见问题</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">开发配置</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/dependency-config/" class="active">依赖包配置</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/sdk-config/" class="">SDK配置</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">通信通道</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/rest-transport/" class="">rest方式</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/highway-transport/" class="">highway方式</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">处理链开发</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/handler-summary/" class="">概述</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/service-management/" class="">服务治理</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/load-balance/" class="">负载均衡</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/qps/" class="">QPS流控</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">部署</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/deployment/" class="">如何部署</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="依赖包配置">
+    <meta itemprop="description" content="如何利用JavaChassis迅速创建微服务.">
+    <meta itemprop="datePublished" content="June 13, 2017">
+    <meta itemprop="dateModified" content="June 06, 2017">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">依赖包配置
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>介绍开发过程依赖包的配置，请根据实际开发模式选择。</p>
+
+<aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> 在本页上</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#依赖包配置" id="markdown-toc-依赖包配置">依赖包配置</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<h2 id="依赖包配置">依赖包配置</h2>
+
+<p>使用dependencyManagement来进行依赖包版本的管理，通过修改version字段来使用相应版本的依赖包 。</p>
+
+<p>依赖包中包括三类：transport、provider、handler，分别用于引入网络通道、开发模式、治理链依赖包。其中transport和provider为必选，服务端需要增加一个loadbalance handler必选项。在Pom文件中增加如下内容：</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;dependencyManagement&gt;</span>
+  <span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>io.servicecomb<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>java-chassis-dependencies<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>0.1.0-m1<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/dependencyManagement&gt;</span>
+
+<span class="nt">&lt;dependencies&gt;</span>
+    <span class="c">&lt;!-- transport --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>io.servicecomb<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>transport-rest-vertx<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="c">&lt;!-- provider --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>io.servicecomb<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>provider-pojo<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="c">&lt;!-- handler --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>io.servicecomb<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>handler-performance-stats<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+</code></pre>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> 最新的:</strong> <time datetime="2017-06-06">June 06, 2017</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/docs/user-guide/" class="pagination--pager" title="用户手册
+">向前</a>
+    
+    
+      <a href="http://localhost:4000/docs/sdk-config/" class="pagination--pager" title="SDK 配置
+">向后</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <div align="center" style="margin: 1em 0;">
+    <ins class="adsbygoogle"
+         style="display:block; border-bottom: initial;"
+         data-ad-client="ca-pub-7328585512091257"
+         data-ad-slot="3049671934"
+         data-ad-format="auto"></ins>
+    </div>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>关注:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/ServiceComb"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2017 ServiceComb. 技术来自于 <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+
+  </body>
+</html>
