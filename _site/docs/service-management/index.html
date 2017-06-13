@@ -68,7 +68,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-06-13T10:12:16+08:00">
+  <meta property="article:published_time" content="2017-06-13T15:03:11+08:00">
 
 
 
@@ -160,7 +160,7 @@
             <li class="masthead__menu-item"><a href="http://localhost:4000/year-archive/">博文</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:4000/about/">关于</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/about/project">关于</a></li>
           
         </ul>
         <button><div class="navicon"></div></button>
@@ -441,11 +441,6 @@
 
 <p class="notice--warning"><strong>Note:</strong>SDK开发指南里面描述的都是技术概念，最终用户并不会用到这里的概念。系统提供的治理功能请参考治理中心的文档说明。</p>
 
-<ol>
-  <li>JDK 1.8</li>
-  <li>Maven 3.5.0</li>
-</ol>
-
 <h2 id="配置项生效范围">配置项生效范围</h2>
 
 <ul>
@@ -481,93 +476,80 @@ cse.isolation.Provider.DemoService.hello.sayHello.enabled</p>
       <th style="text-align: center">配置项</th>
       <th style="text-align: center">默认配置值参考</th>
       <th style="text-align: center">说明</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: center">隔离</td>
-      <td style="text-align: center"> </td>
       <td style="text-align: center">cse.isolation.timeout.enabled</td>
       <td style="text-align: center">FALSE</td>
-      <td>是否启用超时检测。</td>
+      <td style="text-align: center">是否启用超时检测。</td>
     </tr>
     <tr>
       <td style="text-align: center">隔离</td>
       <td style="text-align: center">cse.isolation.timeoutInMilliseconds</td>
       <td style="text-align: center">30000</td>
       <td style="text-align: center">超时时间，超过时间，记录一次错误。</td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: center">隔离</td>
       <td style="text-align: center">cse.isolation.maxConcurrentRequests</td>
       <td style="text-align: center">10</td>
       <td style="text-align: center">通过并发数检测错误。配置最大并发数。</td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: center">熔断</td>
       <td style="text-align: center">cse.circuitBreaker.enabled</td>
       <td style="text-align: center">TRUE</td>
       <td style="text-align: center">是否启用熔断措施。</td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: center">熔断</td>
       <td style="text-align: center">cse.circuitBreaker.forceOpen</td>
       <td style="text-align: center">FALSE</td>
       <td style="text-align: center">不管失败次数，都进行熔断。</td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: center">熔断</td>
       <td style="text-align: center">cse.circuitBreaker.forceClosed</td>
       <td style="text-align: center">FALSE</td>
       <td style="text-align: center">任何时候都不熔断，forceOpen优先。</td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: center">熔断</td>
       <td style="text-align: center">cse.circuitBreaker.sleepWindowInMilliseconds</td>
       <td style="text-align: center">15000</td>
       <td style="text-align: center">熔断后，多长时间恢复。恢复后，会重新计算失败情况。注意：如果恢复后的调用立即失败，那么会立即重新进入熔断。</td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: center">熔断</td>
       <td style="text-align: center">cse.circuitBreaker.requestVolumeThreshold</td>
       <td style="text-align: center">20</td>
       <td style="text-align: center">10s内统计的请求个数，10s内统计的请求必须大于这个值，并且错误率达到阈值的时候才熔断。由于10秒还会被划分为10个1秒的统计周期，经过1s中后才会开始计算错误率，因此从调用开始至少经过1s，才会发生熔断。</td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: center">熔断</td>
       <td style="text-align: center">cse.circuitBreaker.errorThresholdPercentage</td>
       <td style="text-align: center">50</td>
       <td style="text-align: center">错误率，达到错误率的时候熔断。</td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: center">容错</td>
       <td style="text-align: center">cse.fallback.enabled</td>
       <td style="text-align: center">TRUE</td>
       <td style="text-align: center">是否启用出错后的故障处理措施。支持返回null和抛出Exception两种处理措施。</td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: center">容错</td>
       <td style="text-align: center">cse.fallback.maxConcurrentRequests</td>
       <td style="text-align: center">10</td>
       <td style="text-align: center">并发调用容错处理措施（cse.fallbackpolicy.policy）的请求数。超过这个值，不再调用处理措施，直接返回异常。</td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: center">容错</td>
       <td style="text-align: center">cse.fallbackpolicy.policy</td>
       <td style="text-align: center">throwexception</td>
       <td style="text-align: center">出错后的处理策略，默认抛出异常。可选值有：returnnull，throwexception</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
